@@ -1,0 +1,110 @@
+:root {
+  --primary-color: #050505;
+  --secondary-color: #d9d0c9;
+  --tertiary-color: #add19e;
+  --fontfamily: arial;
+  --disabeld-color: #777777;
+}
+
+body {
+  background-color: var(--tertiary-color);
+}
+
+#controls,
+#map,
+#gallery, #buttonrestart {
+  width: 100%;
+  max-width: 100vh;
+  max-width: min(100vh, 85vw);
+  margin: 0 auto;
+}
+
+h1 {
+  color: var(--primary-color);
+  display: block;
+  text-align: center;
+  font-family: var(--fontfamily);
+}
+
+p,
+footer, button {
+  color: var(--primary-color);
+  font-family: var(--fontfamily);
+  font-size: medium;
+}
+
+footer {
+  background-color: var(--secondary-color);
+  text-align: center;
+}
+
+#controls {
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#punktetext {
+  margin-left: 10px;
+}
+
+#buttonnext {
+  margin-right: 10px;
+}
+
+#map {
+  height: 45vh;
+  cursor: crosshair;
+}
+#map:active{
+  cursor: grabbing;
+}
+
+#gallery {
+  border: none;
+  display: block;
+  margin: 0 auto;
+  height: 45vh;
+}
+
+#my-image {
+  display: block;
+}
+.button{
+  background-color: var(--secondary-color);
+  border-color: var(--primary-color);
+  border-style: solid;
+  height: 40px;
+}
+.button:hover:enabled {
+  cursor:pointer;
+}
+button:disabled,
+button[disabled]{
+  cursor:not-allowed;
+  color: var(--disabeld-color);
+  border-color: var(--disabeld-color);
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: var(--secondary-color);
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Geoguesser</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="mystyle.css">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+</head>
+
+
+<body>
+    <link rel="prefetch" id="prefetcher" href="img/test2.jpeg">
+    <h1 id="titletext">Geoguesser Karlsruhe</h1>
+    <div id="controls">
+        <p id="punktetext">Punkte:0000</p>
+        <p id="abstandtext"></p>
+        <button id="buttonnext" class="button" onclick="nextChallenge()">&#128274; Weiter &#128274;</button>
+    </div>
+    <!-- The Modal -->
+    <div id="popup" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <p id="popuptext">Herzlichen Glückwunsch, du hast alle Orte gefunden.</p>
+            <button id="buttonrestart" class="button" onclick="restart()">Nochmal spielen</button>
+        </div>
+
+    </div>
+    <div id="gallery">
+        <a-scene embedded>
+            <a-asset></a-asset>
+            <a-sky id="my-image" src="img/test2.jpeg" rotation="0 -20 0"></a-sky>
+        </a-scene>
+    </div>
+    <div id="map"></div>
+    <footer>Bei Fragen und Feedback: fabianriemer03@gmail.com</footer>
+</body>
+<script>
+    const DEBUGGING = false;
+    
+    window.onbeforeunload = function () {
+        return "Ihr Fortschritt geht verloren, wenn Sie die Seite verlassen. Sind Sie sicher?";
+    };
+    //HTML-Elemente
+    const myimage = document.getElementById("my-image");
+    const abstandtext = document.getElementById("abstandtext");
+    const punktetext = document.getElementById("punktetext");
+    const buttonnext = document.getElementById("buttonnext");
+    const titletext = document.getElementById("titletext");
+    const popup = document.getElementById("popup");
+    const popuptext = document.getElementById("popuptext");
+    const prefetcher = document.getElementById("prefetcher");
+
+    //Pictures and Coords
+    var stadtindex = 1;
+    var stadtname = ["Karlsruhe", "Essen"];
+    var centercoords = [[49.0068901, 8.4036527], [51.412618, 6.982807]]
+
+    var challengeskarlsruhe = [["test1.jpeg", [49.0, 8.4]],
+    ["test2.jpeg", [49.009, 8.399]],
+    ["test3.jpg", [49.006, 8.401]]];
+
+    var challengesessen = [["Beckmannsbusch.jpg", [51.416100, 6.982488]],
+    ["Buropark1.jpg", [51.414199, 6.978896]],
+    ["Buropark2.jpg", [51.415024, 6.979414]],
+    ["GaleriaKaufhof.jpg", [51.415892, 6.980300]],
+    ["Grashofschulhof.jpg", [51.416583, 6.987887]],
+    ["Grashofstrasse.jpg", [51.416979, 6.988781]],
+    ["Heierbusch.jpg", [51.413444, 6.982646]],
+    ["HeierbuschKirche.jpg", [51.412290, 6.982445]],
+    ["Kuppersheide.jpg", [51.412691, 6.983252]],
+    ["Rodelberg.jpg", [51.413771, 6.980818]],
+    ["Waldchenabkurzung.jpg", [51.413723, 6.987467]],
+    ["Waldchenbrucke.jpg", [51.417133, 6.985838]],
+    ["Waldcheneingang.jpg", [51.412645, 6.985548]],
+    ["Altenheim.jpg", [51.408129, 6.983372]],
+    ["Altenheimkreuzung.jpg", [51.408136, 6.982453]],
+    ["Blumenladenkreuzung.jpg", [51.411927, 6.985480]],
+    ["Dogsinn.jpg", [51.411722, 6.982374]],
+    ["Friedhof.jpg", [51.410472, 6.981708]],
+    ["Goetheeingang.jpg", [51.408845, 6.990395]],
+    ["Goetheschulhof.jpg", [51.408940, 6.989367]],
+    ["Helmertweg.jpg", [51.410593, 6.985972]],
+    ["Meisenburgeingang.jpg", [51.411741, 6.987109]],
+    ["Pausenbaum.jpg", [51.404428, 6.988027]],
+    ["TCBredeney.jpg", [51.408983, 6.984084]],
+    ["Waldseekreuzung.jpg", [51.407358, 6.985156]],
+    ["Waldspielplatz.jpg", [51.409692, 6.987618]],
+    ["Wasserturm.jpg", [51.408080, 6.988493]],
+    ["Assey.jpg", [51.410394, 6.974529]],
+    ["BredeneyerFriedhof.jpg", [51.412776, 6.979243]],
+    ["Bruckerholt.jpg", [51.411245, 6.977795]],
+    ["Funkestiftung.jpg", [51.402213, 6.983027]],
+    ["Pferdestall.jpg", [51.409767, 6.968921]],
+    ["Waldeingangbruckerholt.jpg", [51.405348, 6.984070]],
+    ["Westerwald.jpg", [51.406592, 6.982567]],
+    ["Wetteramt.jpg", [51.407005, 6.965947]],
+    ["Heisiwald2.jpg", [51.391341, 6.989523]],
+    ["Heisiwaldanfang.jpg", [51.393253, 6.986556]],
+    ["VillaVue.jpg", [51.392172, 6.993479]],
+    ["AlteSchmiede.jpg", [51.412985, 6.993425]],
+    ["Boltzplatz.jpg", [51.412498, 6.988540]],
+    ["Edekabredeneyer.jpg", [51.412315, 6.992606]],
+    ["Fussballplatz.jpg", [51.412677, 6.989486]],
+    ["Grashofwald.jpg", [51.414374, 6.992496]],
+    ["Kioskbredeneyer.jpg", [51.410305, 6.993954]],
+    ["Klavierkunst.jpg", [51.412976, 6.992565]],
+    ["Loco.jpg", [51.413242, 6.994127]],
+    ["Officina.jpg", [51.411701, 6.994131]],
+    ["PrinzAdolf.jpg", [51.415185, 6.994550]],
+    ["Steillage.jpg", [51.402295, 6.989734]],
+    ["Zahnarzt.jpg", [51.408963, 6.993475]]];
+
+    //["Heisiwald3.jpg", [51.393337, 6.987947]],
+    var challenges = [challengeskarlsruhe, challengesessen];
+    challenges[stadtindex] = shuffle(challenges[stadtindex]);
+
+    //displays
+    var markers = [];
+    var verbindung = null;
+
+    // Variablen
+    var notguessedyet = true;
+    var currentchallenge = 0;
+    var corrdsguess = null;
+    var corrdscorr = null;
+    var distance = 0;
+    var punkte = 0;
+    var totaldistance = 0;
+    var solvedchallenges = 0;
+
+    //Stadt anpassen
+    titletext.innerHTML = "Geoguesser " + stadtname[stadtindex];
+
+    // Creating map options
+    var mapOptions = {
+        center: centercoords[stadtindex],
+        zoom: 13
+    }
+
+    // Creating a map object
+    var map = new L.map('map', mapOptions);
+
+    // Creating a Layer object
+    var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+    // Adding layer to the map
+    map.addLayer(layer);
+
+    updateChallenge();
+
+    //click event
+    map.on('click', (event) => {
+        if (notguessedyet) {
+            corrdsguess = [event.latlng.lat, event.latlng.lng];
+            placeMarker(corrdscorr);
+            placeMarker(corrdsguess);
+            verbindung = L.polyline([corrdsguess, corrdscorr], { color: 'black' }).addTo(map);
+            distance = getDistance(corrdsguess, corrdscorr);
+            totaldistance += distance;
+            punkteaktualisieren()
+            abstandtext.innerHTML = "Abstand:" + distance + "m";
+            buttonnext.removeAttribute("disabled");
+            buttonnext.innerHTML = "Weiter (" + (currentchallenge + 2) + "/" + challenges[stadtindex].length + ")";
+            if (currentchallenge + 2 > challenges[stadtindex].length) {
+                buttonnext.innerHTML = "Beenden"
+            }
+            notguessedyet = false;
+            solvedchallenges += 1;
+        }
+    })
+    function nextChallenge() {
+        currentchallenge += 1;
+        if (DEBUGGING) {
+            showPopup();
+        }
+        if (currentchallenge >= challenges[stadtindex].length) {
+            showPopup();
+        }
+        updateChallenge();
+    }
+    function updateChallenge() {
+        cleanup();
+        corrdscorr = challenges[stadtindex][currentchallenge][1];
+        myimage.setAttribute('src', "img/" + stadtname[stadtindex] + "/" + challenges[stadtindex][currentchallenge][0]);
+        abstandtext.innerHTML = "";
+        buttonnext.setAttribute("disabled", true);
+        buttonnext.innerHTML = "&#128274; Weiter &#128274;";
+        if (currentchallenge + 1 > challenges[stadtindex].length) {
+            prefetcher.setAttribute("src", "img/" + stadtname[stadtindex] + "/" + challenges[stadtindex][currentchallenge + 1][0])
+        }
+        if (currentchallenge + 2 > challenges[stadtindex].length) {
+            buttonnext.innerHTML = "&#128274; Beenden &#128274;";
+        }
+    }
+    function restart() {
+        challenges[stadtindex] = shuffle(challenges[stadtindex]);
+        currentchallenge = 0;
+        punkte = 0;
+        solvedchallenges = 0;
+        punktetext.innerHTML = "Punkte:" + punkte;
+        popup.style.display = "none";
+        updateChallenge();
+    }
+    //Punkte ausrechen mit distance
+    function punkteaktualisieren() {
+        punkte = punkte + Math.round(1000 * Math.exp(-distance * 0.005));
+        punktetext.innerHTML = "Punkte:" + punkte;
+    }
+    //Marker an Coords plazieren
+    function placeMarker(mycoords) {
+        let marker = L.marker(mycoords).addTo(map);
+        markers.push(marker);
+    }
+    //Marker entfernen
+    function deleteMarker(marker) {
+        map.removeLayer(marker);
+    }
+    //alte Marker löschen
+    function cleanup() {
+        markers.forEach(deleteMarker);
+        if (verbindung !== null) {
+            map.removeLayer(verbindung);
+        }
+        notguessedyet = true;
+    }
+    //Abstand berechnen Hilfsfunktionen
+    function getDistance(origin, destination) {
+        // return distance in meters
+        var lon1 = toRadian(origin[1]),
+            lat1 = toRadian(origin[0]),
+            lon2 = toRadian(destination[1]),
+            lat2 = toRadian(destination[0]);
+
+        var deltaLat = lat2 - lat1;
+        var deltaLon = lon2 - lon1;
+
+        var a = Math.pow(Math.sin(deltaLat / 2), 2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(deltaLon / 2), 2);
+        var c = 2 * Math.asin(Math.sqrt(a));
+        var EARTH_RADIUS = 6371;
+        return Math.round((c * EARTH_RADIUS * 1000) / 5) * 5;
+    }
+    function toRadian(degree) {
+        return degree * Math.PI / 180;
+    }
+    function shuffle(array) {
+        let counter = array.length;
+
+        // While there are elements in the array
+        while (counter > 0) {
+            // Pick a random index
+            let index = Math.floor(Math.random() * counter);
+
+            // Decrease counter by 1
+            counter--;
+
+            // And swap the last element with it
+            let temp = array[counter];
+            array[counter] = array[index];
+            array[index] = temp;
+        }
+
+        return array;
+    }
+    function showPopup() {
+        let finalpopuptext = "Herzlichen Glückwunsch, du hast " + solvedchallenges + "/"
+            + challenges[stadtindex].length + " Orte gefunden. Dabei hast du " + punkte +
+            " Punkte gesammelt. Insgesamt beträgt deine totale Abweichung " + totaldistance + "m.";
+        if (solvedchallenges > 0) {
+            finalpopuptext = finalpopuptext + " Also " + Math.round(totaldistance / solvedchallenges) + "m im Durchschnitt.";
+        }
+        popuptext.innerHTML = finalpopuptext;
+        popup.style.display = "block";
+    }
+    //DebugFunktionen:
+    showAllMarker();
+    //Alle Marker anzeigen
+    function showAllMarker() {
+        if (DEBUGGING) {
+            cleanup();
+            challenges[stadtindex].forEach(placeMarkerofChallenge);
+        }
+    }
+    function placeMarkerofChallenge(challenge) {
+        placeMarker(challenge[1]);
+    }
+</script>
+
+</html>
