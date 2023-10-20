@@ -80,7 +80,8 @@
 		/* The dots/bullets/indicators */
 		.dots1,
 		.dots2,
-		.dots3 {
+		.dots3,
+		.dots4 {
 			cursor: pointer;
 			height: 15px;
 			width: 15px;
@@ -94,7 +95,8 @@
 		.active,
 		.dots1:hover,
 		.dots2:hover,
-		.dots3:hover {
+		.dots3:hover,
+		.dots4:hover {
 			background-color: #717171;
 		}
 
@@ -114,6 +116,33 @@
 			}
 		}
 	</style>
+	<style>
+		#main>header {
+			padding: 12em 0 10em 0;
+			background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+			background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+			background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+			background-image: linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+
+		}
+
+		body.landing #page-wrapper {
+			background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+			background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+			background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+			background-image: linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+
+		}
+
+		body.is-mobile.landing #banner,
+		body.is-mobile.landing .wrapper.style4 {
+			background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+			background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+			background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+			background-image: linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/hiroshimabanner.jpg");
+
+		}
+	</style>
 	<link rel="icon" href="images/icon.ico">
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
@@ -122,7 +151,7 @@
 
 
 <body class="is-preload">
- <!--Test-->
+	<!--Test-->
 	<!-- Page Wrapper -->
 	<div id="page-wrapper">
 
@@ -154,12 +183,56 @@
 		<article id="main">
 			<header>
 				<h2>Urlaubsbilder</h2>
-				<p>In Photoshop erstellte Collagen von Bildern, die ich auf meinen Reisen gemacht habe.</p>
+				<p>In Photoshop erstellte Collagen von Bildern, die ich auf meinen Reisen gemacht habe</p>
 			</header>
 			<section class="wrapper style5">
 				<div class="inner">
+					<h2>Japan</h2>
+					<p>Im Herbst 2023 bin ich mit meiner Familie nach Japan geflogen und wir haben innerhalb von zwei
+						Wochen einige Städte besucht.
+					</p>
+					<div class="slideshow-container">
+						<div class="mySlides4">
+							<div class="numbertext">1 / 6</div>
+							<img src="images/Collagen/Tokyo.png" style="width:100%">
+						</div>
+						<div class="mySlides4">
+							<div class="numbertext">2 / 6</div>
+							<img src="images/Collagen/Hakone.png" style="width:100%">
+						</div>
+						<div class="mySlides4">
+							<div class="numbertext">3 / 6</div>
+							<img src="images/Collagen/Kyoto.png" style="width:100%">
+						</div>
+						<div class="mySlides4">
+							<div class="numbertext">4 / 6</div>
+							<img src="images/Collagen/Nara.png" style="width:100%">
+						</div>
+						<div class="mySlides4">
+							<div class="numbertext">5 / 6</div>
+							<img src="images/Collagen/Hiroshima.png" style="width:100%">
+						</div>
+						<div class="mySlides4">
+							<div class="numbertext">6 / 6</div>
+							<img src="images/Collagen/Osaka.png" style="width:100%">
+						</div>
+
+						<a class="prev" onclick="plusSlides(-1, 3)">&#10094;</a>
+						<a class="next" onclick="plusSlides(1, 3)">&#10095;</a>
+						<!-- The dots/circles -->
+						<div style="text-align:center">
+							<span class="dots4" onclick="setSlide(1,3)"></span>
+							<span class="dots4" onclick="setSlide(2,3)"></span>
+							<span class="dots4" onclick="setSlide(3,3)"></span>
+							<span class="dots4" onclick="setSlide(4,3)"></span>
+							<span class="dots4" onclick="setSlide(5,3)"></span>
+							<span class="dots4" onclick="setSlide(6,3)"></span>
+						</div>
+					</div>
+					<hr />
 					<h2>Bristische Inseln</h2>
-					<p>In den Sommersemseterferien 2023 bin ich mit einem 10-Fahrten Interrailticket durch Großbritannien und Irland gefahren und habe mir viele
+					<p>In den Sommersemseterferien 2023 bin ich mit einem 10-Fahrten Interrailticket durch
+						Großbritannien und Irland gefahren und habe mir viele
 						schöne Städte angeschaut. Insgeamt bin ich 3630km mit Zügen gefahren und war 15 Tage unterwegs.
 					</p>
 					<div class="slideshow-container">
@@ -233,19 +306,22 @@
 					<hr />
 
 					<h2>Rheinradweg</h2>
-					<p>In den Sommersemseterferien bin ich mit dem Fahrrad entlang des Rheins von Karlsruhe nach Essen gefahren. Ich habe die 459km in 7 Tagen zurückgelegt.
+					<p>In den Sommersemseterferien bin ich mit dem Fahrrad entlang des Rheins von Karlsruhe nach Essen
+						gefahren. Ich habe die 459km in 7 Tagen zurückgelegt.
 					</p>
 					<div class="slideshow-container">
 						<img src="images/Collagen/Rhein.png" style="width:100%">
 					</div>
-					<hr/>
+					<hr />
 
 					<h2>Benelux</h2>
-					<p>In den Pfingstferien 2023 bin ich mit einem 4-Tage-Interrail Ticket durch die Benelux-Länder gefahren und habe die Hauptstädte
-						erkundigt. In Brüssel und Luxemburg konnte mich meine Schwester begleiten. Ich bin in 9 Tagen 1197km Zug gefahren.
+					<p>In den Pfingstferien 2023 bin ich mit einem 4-Tage-Interrail Ticket durch die Benelux-Länder
+						gefahren und habe die Hauptstädte
+						erkundigt. In Brüssel und Luxemburg konnte mich meine Schwester begleiten. Ich bin in 9 Tagen
+						1197km Zug gefahren.
 					</p>
 					<div class="slideshow-container">
-						<div class="mySlides2">							
+						<div class="mySlides2">
 							<div class="numbertext">1 / 3</div>
 							<img src="images/Collagen/Amsterdam.png" style="width:100%">
 						</div>
@@ -261,14 +337,17 @@
 						<a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
 						<!-- The dots/circles -->
-						<span class="dots2" onclick="setSlide(1,1)"></span>
-						<span class="dots2" onclick="setSlide(2,1)"></span>
-						<span class="dots2" onclick="setSlide(3,1)"></span>
+						<div style="text-align:center">
+							<span class="dots2" onclick="setSlide(1,1)"></span>
+							<span class="dots2" onclick="setSlide(2,1)"></span>
+							<span class="dots2" onclick="setSlide(3,1)"></span>
+						</div>
 					</div>
 					<hr />
 
 					<h2>DiscoverEU</h2>
-					<p>Im Sommer 2022 habe ich das DiscoverEU-Interrailticket, welches ich von der EU gewonnen habe, eingelöst. Ich bin durch einige Hauptstädte in Nord- und Osteuropa
+					<p>Im Sommer 2022 habe ich das DiscoverEU-Interrailticket, welches ich von der EU gewonnen habe,
+						eingelöst. Ich bin durch einige Hauptstädte in Nord- und Osteuropa
 						gereist. In 22 Tagen bin ich 67 Stunden Zug oder Flixbus gefahren.
 					</p>
 					<div class="slideshow-container">
@@ -300,12 +379,14 @@
 						<a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
 
 						<!-- The dots/circles -->
-						<span class="dots3" onclick="setSlide(1,2)"></span>
-						<span class="dots3" onclick="setSlide(2,2)"></span>
-						<span class="dots3" onclick="setSlide(3,2)"></span>
-						<span class="dots3" onclick="setSlide(4,2)"></span>
-						<span class="dots3" onclick="setSlide(5,2)"></span>
-						<span class="dots3" onclick="setSlide(6,2)"></span>
+						<div style="text-align:center">
+							<span class="dots3" onclick="setSlide(1,2)"></span>
+							<span class="dots3" onclick="setSlide(2,2)"></span>
+							<span class="dots3" onclick="setSlide(3,2)"></span>
+							<span class="dots3" onclick="setSlide(4,2)"></span>
+							<span class="dots3" onclick="setSlide(5,2)"></span>
+							<span class="dots3" onclick="setSlide(6,2)"></span>
+						</div>
 					</div>
 
 				</div>
@@ -338,13 +419,14 @@
 
 	<!-- Scripts -->
 	<script>
-		let slideIndex = [1, 1, 1];
+		let slideIndex = [1, 1, 1, 1];
 		/* Class the members of each slideshow group with different CSS classes */
-		let slideId = ["mySlides1", "mySlides2", "mySlides3"];
-		let dotId = ["dots1", "dots2", "dots3"];
+		let slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4"];
+		let dotId = ["dots1", "dots2", "dots3", "dots4"];
 		showSlides(1, 0);
 		showSlides(1, 1);
 		showSlides(1, 2);
+		showSlides(1, 3);
 
 		function plusSlides(n, no) {
 			setSlide(slideIndex[no] + n, no)
