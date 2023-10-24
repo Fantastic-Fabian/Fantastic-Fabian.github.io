@@ -11,6 +11,33 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+		#main>header {
+			padding: 12em 0 10em 0;
+			background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+			background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+			background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+			background-image: linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+
+		}
+
+		body.landing #page-wrapper {
+			background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+			background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+			background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+			background-image: linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+
+		}
+
+		body.is-mobile.landing #banner,
+		body.is-mobile.landing .wrapper.style4 {
+			background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+			background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+			background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+			background-image: linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/morsebustersbanner.png");
+
+		}
+	</style>
 	<link rel="icon" href="images/icon.ico">
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
@@ -32,13 +59,10 @@
 						<div id="menu">
 							<ul>
 								<li><a href="index.html">Home</a></li>
+								<li><a href="urlaub.html">Urlaubsbilder</a></li>
 								<li><a href="geoguesser/index.html">Geoguesser</a></li>
 								<li><a href="countryfinder.html">Countryfinder</a></li>
 								<li><a href="morsebusters.html">Morsebusters</a></li>
-								<li><a href="doppelkopf/client/index.html">Doppelkopf</a></li>
-								<li><a href="generic.html">Generic</a></li>
-								<li><a href="generic.html">Generic</a></li>
-								<li><a href="elements.html">Elements</a></li>
 							</ul>
 						</div>
 					</li>
@@ -59,17 +83,17 @@
 					<p>Besiege den Strom von Buchstabenmonstern indem du den passenden Morsecode eingibst. Finde die richtige Herausforderung
                          mit individuellen Einstellungen wie Spawnrate oder Geschwindigkeit der Monster. Probiere im Survival-Modus mit 
                          begrenzten Leben solange wie möglich zu überleben oder übe Morsecode mit unendlichvielen Leben. Falls
-                         du mal nicht weiter weißt, kannst du jederzeit im Cheatsheet die richitge Übersetzung nachschauen.
+                         du mal nicht weiter weißt, kannst du jederzeit im Cheatsheet die richtige Übersetzung nachschauen.
                     </p>
 
-					<p>Das Spiel ist mein aller erstes Project in Unity. Die Skripte sind in C# geschrieben. Alle Grafiken habe ich selber gestaltet.</p>
+					<p>Das Spiel ist mein allererstes Project in Unity. Die Skripte sind in C# geschrieben. Alle Grafiken habe ich selber gestaltet.</p>
 
 					<hr />
-					<iframe src="morsebusters/web/index.html" height="750" width="100%"  title="Morsebusters WebGl"></iframe>
+					<iframe src="https://i.simmer.io/@FantasticFabian/morsebusters" style="width:960px;height:600px"></iframe>
 					<hr />
                     <p>Lade das Spiel als Windows-Programm oder Android-App herunter und probiere es aus.</p>
                     <ul class="actions">
-                        <li><a href="morsebusters/Morsebusterswindows.zip" class="button primary icon solid fa-download">Windows</a></li>
+                        <li><a href="morsebusters/morsebusterswindows.zip" class="button primary icon solid fa-download">Windows</a></li>
                         <li><a href="morsebusters/morsebustersandroid.apk" class="button primary icon solid fa-download">Android</a></li>
                     </ul>
 				</div>
