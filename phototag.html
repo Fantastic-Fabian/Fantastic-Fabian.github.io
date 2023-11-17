@@ -78,6 +78,75 @@
 				<h2>Photo-Tag Karlsruhe</h2>
 				<p>Eine abenteuerliche Stadtralley gegen deine Freunde</p>
 			</header>
+			<section id="three" class="wrapper style3 special">
+				<div class="inner">
+					<div id="startbutton">
+						<h2>Einfache Js-Implimentierung des Spiels</h2>
+						<p>Klickt den Knopf um das Spiel zu starten</p>
+						<button class="button primary fit" onclick="startgame()">Start Game</button>
+					</div>
+
+					<div class="table-wrapper" id="challengetable">
+						<h2 id="punktetext">Punkte: 0</h2>
+						<table class="alt">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Challenge</th>
+									<th>Aktions</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>4</td>
+									<td>Ante turpis integer aliquet porttitor.</td>
+									<td>
+										<ul class="actions stacked" style="margin-bottom: 0;">
+											<li><button class="button primary small" onclick="done(0)">Done</button>
+											</li>
+											<li><button class="button small" onclick="veto(0)">Veto</a></li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td>55</td>
+									<td>Vis ac commodo adipiscing arcu aliquet.</td>
+									<td>
+										<ul class="actions stacked" style="margin-bottom: 0;">
+											<li><button class="button primary small" onclick="done(1)">Done</button>
+											</li>
+											<li><button class="button small" onclick="veto(1)">Veto</a></li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td> Morbi faucibus arcu accumsan lorem.</td>
+									<td>
+										<ul class="actions stacked" style="margin-bottom: 0;">
+											<li><button class="button primary small" onclick="done(2)">Done</button>
+											</li>
+											<li><button class="button small" onclick="veto(2)">Veto</a></li>
+										</ul>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+							<tbody>
+								<tr>
+									<td><button class="button primary small" onclick="changePunkte(60)">Foto
+											gemacht</button></td>
+									<td><button class="button small" onclick="changePunkte(-20)">Fotografiert
+											worden</button></td>
+									<td><button class="button primary small" onclick="changePunkte(-20)">GPS
+											aus</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
 			<section class="wrapper style5">
 				<div class="inner">
 
@@ -105,7 +174,7 @@
 					</ul>
 					<hr />
 					<h3>Challenges</h3>
-					<ol>
+					<ol id="challengelist">
 						<li>Esst ein Eis</li>
 						<li>Geht in eine unterirdische Bahnstation</li>
 						<li>Findet eine Tafel mit Grundrechten</li>
@@ -195,6 +264,8 @@
 	</div>
 
 	<!-- Scripts -->
+	<script src="phototag.js"></script>
+
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
