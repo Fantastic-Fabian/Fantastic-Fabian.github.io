@@ -1,0 +1,3 @@
+[submodule "geoguesserwebsite"]
+	path = geoguesserwebsite
+	url = https://github.com/Fantastic-Fabian/geoguesserwebsite.git
