@@ -60,6 +60,7 @@
 							<ul>
 								<li><a href="index.html">Home</a></li>
 								<li><a href="urlaub.html">Urlaubsbilder</a></li>
+								<li><a href="bingo.html">Bingo 2024</a></li>
 								<li><a href="phototag.html">Photo-Tag</a></li>
 								<li><a href="countryfinder.html">Countryfinder</a></li>
 								<li><a href="morsebusters.html">Morsebusters</a></li>
@@ -80,24 +81,32 @@
 			</header>
 			<section class="wrapper style5">
 				<div class="inner">
-					
+
 					<h3>Morsebusters</h3>
-					<p>Besiege den Strom von Buchstabenmonstern indem du den passenden Morsecode eingibst. Finde die richtige Herausforderung
-                         mit individuellen Einstellungen wie Spawnrate oder Geschwindigkeit der Monster. Probiere im Survival-Modus mit 
-                         begrenzten Leben solange wie möglich zu überleben oder übe Morsecode mit unendlichvielen Leben. Falls
-                         du mal nicht weiter weißt, kannst du jederzeit im Cheatsheet die richtige Übersetzung nachschauen.
-                    </p>
+					<p>Besiege den Strom von Buchstabenmonstern indem du den passenden Morsecode eingibst. Finde die
+						richtige Herausforderung
+						mit individuellen Einstellungen wie Spawnrate oder Geschwindigkeit der Monster. Probiere im
+						Survival-Modus mit
+						begrenzten Leben solange wie möglich zu überleben oder übe Morsecode mit unendlichvielen Leben.
+						Falls
+						du mal nicht weiter weißt, kannst du jederzeit im Cheatsheet die richtige Übersetzung
+						nachschauen.
+					</p>
 
-					<p>Das Spiel ist mein allererstes Project in Unity. Die Skripte sind in C# geschrieben. Alle Grafiken habe ich selber gestaltet.</p>
+					<p>Das Spiel ist mein allererstes Project in Unity. Die Skripte sind in C# geschrieben. Alle
+						Grafiken habe ich selber gestaltet.</p>
 
 					<hr />
-					<iframe src="https://i.simmer.io/@FantasticFabian/morsebusters" style="width:960px;height:600px"></iframe>
+					<iframe src="https://i.simmer.io/@FantasticFabian/morsebusters"
+						style="width:960px;height:600px" id="browsergame"></iframe>
 					<hr />
-                    <p>Lade das Spiel als Windows-Programm oder Android-App herunter und probiere es aus.</p>
-                    <ul class="actions">
-                        <li><a href="morsebusters/morsebusterswindows.zip" class="button primary icon solid fa-download">Windows</a></li>
-                        <li><a href="morsebusters/morsebustersandroid.apk" class="button primary icon solid fa-download">Android</a></li>
-                    </ul>
+					<p>Lade das Spiel als Windows-Programm oder Android-App herunter und probiere es aus.</p>
+					<ul class="actions">
+						<li><a href="morsebusters/morsebusterswindows.zip"
+								class="button primary icon solid fa-download">Windows</a></li>
+						<li><a href="morsebusters/morsebustersandroid.apk"
+								class="button primary icon solid fa-download">Android</a></li>
+					</ul>
 				</div>
 			</section>
 		</article>
@@ -106,11 +115,16 @@
 		<footer id="footer">
 			<ul class="icons">
 				<li><a href="tel:+4915752645661" class="icon solid fa-phone"><span class="label">Telefon</span></a></li>
-				<li><a href="https://wa.me/4915752645661" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
-				<li><a href="https://www.instagram.com/fantasticfabian03/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-				<li><a href="https://www.snapchat.com/add/fantasticfabian" class="icon brands fa-snapchat"><span class="label">Snapchat</span></a></li>
-				<li><a href="https://www.discordapp.com/users/689078329915080797" class="icon brands fa-discord"><span class="label">Discord</span></a></li>
-				<li><a href="mailto:fabianriemer03@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				<li><a href="https://wa.me/4915752645661" class="icon brands fa-whatsapp"><span
+							class="label">WhatsApp</span></a></li>
+				<li><a href="https://www.instagram.com/fantasticfabian03/" class="icon brands fa-instagram"><span
+							class="label">Instagram</span></a></li>
+				<li><a href="https://www.snapchat.com/add/fantasticfabian" class="icon brands fa-snapchat"><span
+							class="label">Snapchat</span></a></li>
+				<li><a href="https://www.discordapp.com/users/689078329915080797" class="icon brands fa-discord"><span
+							class="label">Discord</span></a></li>
+				<li><a href="mailto:fabianriemer03@gmail.com" class="icon solid fa-envelope"><span
+							class="label">Email</span></a></li>
 			</ul>
 			<ul class="copyright">
 				<li>&copy; Fabian Riemer</li>
@@ -122,6 +136,25 @@
 	</div>
 
 	<!-- Scripts -->
+	<script>
+		/* Storing user's device details in a variable*/
+		let details = navigator.userAgent;
+
+		/* Creating a regular expression  
+		containing some mobile devices keywords  
+		to search it in details string*/
+		let regexp = /android|iphone|kindle|ipad/i;
+
+		/* Using test() method to search regexp in details 
+		it returns boolean value*/
+		let isMobileDevice = regexp.test(details);
+		let game = document.getElementById("browsergame")
+		if (isMobileDevice) {
+			game.setAttribute("style", "display:none;");
+		} else {
+			game.setAttribute("style", "width:960px;height:600px;");
+		}
+	</script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
