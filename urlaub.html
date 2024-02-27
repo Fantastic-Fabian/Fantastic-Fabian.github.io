@@ -81,7 +81,8 @@
 		.dots1,
 		.dots2,
 		.dots3,
-		.dots4 {
+		.dots4,
+		.dots5 {
 			cursor: pointer;
 			height: 15px;
 			width: 15px;
@@ -96,7 +97,8 @@
 		.dots1:hover,
 		.dots2:hover,
 		.dots3:hover,
-		.dots4:hover {
+		.dots4:hover,
+		.dots5:hover {
 			background-color: #717171;
 		}
 
@@ -188,6 +190,28 @@
 			</header>
 			<section class="wrapper style5">
 				<div class="inner">
+					<h2>Lissabon und Madrid</h2>
+					<p>Am Anfang der Semesterferien in Frühjahr 2024 habe ich mir innerhalb einer Woche Lissabon und Madrid angeschaut.
+					</p>
+					<div class="slideshow-container">
+						<div class="mySlides5">
+							<div class="numbertext">1 / 2</div>
+							<img src="images/Collagen/Lissabon.jpg" style="width:100%">
+						</div>
+						<div class="mySlides5">
+							<div class="numbertext">2 / 2</div>
+							<img src="images/Collagen/Madrid.jpg" style="width:100%">
+						</div>
+
+						<a class="prev" onclick="plusSlides(-1, 4)">&#10094;</a>
+						<a class="next" onclick="plusSlides(1, 4)">&#10095;</a>
+						<!-- The dots/circles -->
+						<div style="text-align:center">
+							<span class="dots5" onclick="setSlide(1,4)"></span>
+							<span class="dots5" onclick="setSlide(2,4)"></span>
+						</div>
+					</div>
+					<hr />
 					<h2>Japan</h2>
 					<p>Im Herbst 2023 bin ich mit meiner Familie nach Japan geflogen und wir haben innerhalb von zwei
 						Wochen einige Städte besucht.
@@ -420,14 +444,15 @@
 
 	<!-- Scripts -->
 	<script>
-		let slideIndex = [1, 1, 1, 1];
+		let slideIndex = [1, 1, 1, 1, 1];
 		/* Class the members of each slideshow group with different CSS classes */
-		let slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4"];
-		let dotId = ["dots1", "dots2", "dots3", "dots4"];
+		let slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4", "mySlides5"];
+		let dotId = ["dots1", "dots2", "dots3", "dots4", "dots5"];
 		showSlides(1, 0);
 		showSlides(1, 1);
 		showSlides(1, 2);
 		showSlides(1, 3);
+		showSlides(1, 4);
 
 		function plusSlides(n, no) {
 			setSlide(slideIndex[no] + n, no)
