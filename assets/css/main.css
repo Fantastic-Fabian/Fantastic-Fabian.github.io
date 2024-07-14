@@ -332,6 +332,9 @@ input, select, textarea {
 		.row > .col-1 {
 			width: 8.33333%;
 		}
+		.row > .col-15 {
+			width: 12.5%;
+		}
 
 		.row > .off-1 {
 			margin-left: 8.33333%;
@@ -348,6 +351,9 @@ input, select, textarea {
 		.row > .col-3 {
 			width: 25%;
 		}
+		.row > .col-35 {
+			width: 29.16667%;
+		}
 
 		.row > .off-3 {
 			margin-left: 25%;
@@ -356,6 +362,9 @@ input, select, textarea {
 		.row > .col-4 {
 			width: 33.33333%;
 		}
+		.row > .col-45 {
+			width: 37.5%;
+		}
 
 		.row > .off-4 {
 			margin-left: 33.33333%;
@@ -363,6 +372,9 @@ input, select, textarea {
 
 		.row > .col-5 {
 			width: 41.66667%;
+		}
+		.row > .col-55 {
+			width: 45.83333333333%;
 		}
 
 		.row > .off-5 {
@@ -3997,3 +4009,44 @@ input, select, textarea {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+  
+	/* Position the tooltip text */
+	position: absolute;
+	z-index: 1;
+	bottom: 20%;
+	left: 50%;
+	margin-left: -60px;
+  
+	/* Fade in tooltip */
+	opacity: 0;
+	transition: opacity 0.3s;
+  }
+  
+  /* Tooltip arrow */
+  .tooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+  }
