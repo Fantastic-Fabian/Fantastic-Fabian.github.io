@@ -102,7 +102,9 @@
 						<li>Captain Disillusion (YouTube Kanal)</li>
 						<li>You Suck At Cooking (YouTube Kanal)</li>
 					</ul>
-
+					<h3>Random Websites</h3>
+					<p>Klick auf den Button um zu einer coolen zufälligen Websitze weitergeleitet zu werden:</p>
+					<a class="button primary" id="randomWebsite">Random Fun Webpage</a>
 
 				</div>
 			</section>
@@ -131,7 +133,22 @@
 		</footer>
 
 	</div>
-
+	<script>
+		const randomWebsiteButton= document.getElementById("randomWebsite");
+		const links = ["https://xkcd.com/", "https://ruthe.de/","https://joscha.com/", "https://existentialcomics.com/",
+		"https://de.wikipedia.org/wiki/Wikipedia:Hauptseite", "https://commons.wikimedia.org/w/index.php?title=Main_Page", "https://de.wikiquote.org/wiki/Hauptseite",
+		"https://www.nytimes.com/games/connections", "https://www.nytimes.com/games/wordle/index.html", "https://wordledeutsch.org/", 
+		"https://neal.fun/", "https://www.playorbits.com/", "https://theuselessweb.com/", "https://orteil.dashnet.org/cookieclicker/",
+		"https://worldle.teuteuf.fr/", "https://flagle-game.com/daily", "https://wheretaken.com/game", "https://whentaken.com/game",
+		"https://play.freerice.com/", "https://www.jetpunk.com/"
+		];
+		randomWebsiteButton.onclick = function() {
+			let randomLink = links[Math.floor(Math.random() * links.length)];
+			window.open(randomLink, '_blank').focus();
+			//window.location.href = randomLink;
+			return false;
+	};
+	</script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
