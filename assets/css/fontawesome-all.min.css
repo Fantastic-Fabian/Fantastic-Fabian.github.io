@@ -28,3 +28,16 @@
   mask-size: contain;
   vertical-align: middle;
 }
+
+.fa-qrcode:before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: url('images/qrcode-solid-full.svg') no-repeat center;
+  mask: url('images/qrcode-solid-full.svg') no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  vertical-align: middle;
+}
